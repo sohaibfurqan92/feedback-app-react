@@ -1,9 +1,10 @@
 import { FaEdit, FaTimes } from 'react-icons/fa';
+import Card from './shared/Card';
 
 function FeedbackItem({ text, rating }) {
   return (
     <div className='feedback-item'>
-      <div className='card'>
+      <Card>
         <p className='feedback-text'>{text}</p>
         <span className='feedback-rating'>{rating}</span>
         <span className='feedback-icons'>
@@ -14,7 +15,7 @@ function FeedbackItem({ text, rating }) {
             <FaTimes color='purple' />
           </button>
         </span>
-      </div>
+      </Card>
     </div>
   );
 }
