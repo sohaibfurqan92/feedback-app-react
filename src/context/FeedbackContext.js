@@ -1,13 +1,26 @@
 import { createContext, useState, useEffect } from 'react';
 
 const FeedbackContext = createContext();
+const url = 'http://localhost:5000/feedback';
 
 export const FeedbackProvider = ({ children }) => {
+  const [loading, setLoading] = useState(true);
   const [feedback, setFeedback] = useState([]);
   const [editItem, setEditItem] = useState({
     item: {},
     edit: false,
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(url);
+      const data = await response.json();
+      setFeedback(data);
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
 
   const handleAdd = (newFeedback) => setFeedback([newFeedback, ...feedback]);
 
@@ -41,6 +54,7 @@ export const FeedbackProvider = ({ children }) => {
         deleteFeedback,
         updateFeedback,
         editItem,
+        loading,
       }}
     >
       {children}
