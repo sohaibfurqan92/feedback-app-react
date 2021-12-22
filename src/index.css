@@ -114,6 +114,11 @@ body {
   opacity: 0;
 }
 
+[type='radio']:checked ~ label {
+  background: var(--color-secondary);
+  color: #fff;
+  border-radius: 50%;
+}
 .feedback-form .rating li:hover {
   background: var(--color-secondary);
   color: #fff;
@@ -152,4 +157,13 @@ body {
   justify-content: space-between;
   font-weight: bold;
   margin: 2rem 0;
+}
+
+.error {
+  font-size: 1rem;
+  color: var(--bg-primary);
+}
+
+.disabled {
+  background: grey;
 }

@@ -1,21 +1,19 @@
 import Navbar from './components/Navbar';
 import FeedbackList from './components/FeedbackList';
-import { useState } from 'react';
-// import data from './data/FeedbackData';
 import FeedbackForm from './components/FeedbackForm';
 import FeedbackStats from './components/FeedbackStats';
+import { FeedbackProvider } from './context/FeedbackContext';
 
 function App() {
-  const [feedback, setFeedback] = useState([]);
   return (
-    <>
+    <FeedbackProvider>
       <Navbar bgColor='#131428' color='#ff6a95' />
       <div className='container'>
         <FeedbackForm />
         <FeedbackStats />
-        <FeedbackList feedback={feedback} />
+        <FeedbackList />
       </div>
-    </>
+    </FeedbackProvider>
   );
 }
 
