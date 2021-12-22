@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import FeedbackContext from '../context/FeedbackContext';
 
 function FeedbackForm() {
-  const { handleAdd } = useContext(FeedbackContext);
+  const { handleAdd, editItem, updateFeedback } = useContext(FeedbackContext);
   const [text, setText] = useState('');
   const [rating, setRating] = useState(10);
   const [isDisabled, setIsDisabled] = useState(true);
@@ -22,7 +22,12 @@ function FeedbackForm() {
       rating,
     };
 
-    handleAdd(newFeedback);
+    if (editItem.edit) {
+      updateFeedback(editItem.item.id, newFeedback);
+    } else {
+      handleAdd(newFeedback);
+    }
+
     setText('');
   };
 
@@ -37,6 +42,14 @@ function FeedbackForm() {
       setIsDisabled(true);
     }
   }, [text]);
+
+  useEffect(() => {
+    if (editItem.edit) {
+      setIsDisabled(false);
+      setText(editItem.item.text);
+      setRating(editItem.item.rating);
+    }
+  }, [editItem]);
 
   return (
     <Card>
@@ -59,7 +72,7 @@ function FeedbackForm() {
             disabled={isDisabled}
           />
         </div>
-        {text.length >= 1 && text.length < 10 && (
+        {text.trim().length >= 1 && text.trim().length < 10 && (
           <span className='error'>Text must be atleast 10 characters</span>
         )}
       </form>
