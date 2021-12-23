@@ -8,6 +8,11 @@ function Navbar(props) {
   );
 }
 
+Navbar.defaultProps = {
+  bgColor: '#1b191a',
+  color: '#fff',
+};
+
 Navbar.propTypes = {
   bgColor: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,

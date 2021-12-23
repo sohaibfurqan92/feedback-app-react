@@ -7,9 +7,9 @@
 }
 
 :root {
-  --bg-primary: #202142;
-  --bg-dark: #131428;
-  --color-secondary: #ff6a95;
+  --bg-primary: #231f20;
+  --bg-dark: #1b191a;
+  --color-secondary: rgb(192, 46, 192);
 }
 
 body {

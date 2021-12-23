@@ -7,7 +7,7 @@ import { FeedbackProvider } from './context/FeedbackContext';
 function App() {
   return (
     <FeedbackProvider>
-      <Navbar bgColor='#131428' color='#ff6a95' />
+      <Navbar />
       <div className='container'>
         <FeedbackForm />
         <FeedbackStats />
