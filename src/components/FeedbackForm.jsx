@@ -1,7 +1,6 @@
 import Card from './shared/Card';
 import { useState, useEffect, useContext } from 'react';
 import RatingSelect from './RatingSelect';
-import { v4 as uuidv4 } from 'uuid';
 import FeedbackContext from '../context/FeedbackContext';
 
 function FeedbackForm() {
@@ -17,7 +16,6 @@ function FeedbackForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newFeedback = {
-      id: uuidv4(),
       text,
       rating,
     };
