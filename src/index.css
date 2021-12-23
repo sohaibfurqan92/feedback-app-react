@@ -167,3 +167,13 @@ body {
 .disabled {
   background: grey;
 }
+
+.about-icon {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+}
+
+.about-icon:hover {
+  color: var(--color-secondary);
+}
